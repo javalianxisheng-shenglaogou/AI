@@ -1,0 +1,29 @@
+{
+    "后端接口": [
+        {
+            "路径": "/api/ai/love_app/chat/sse",
+            "描述": "AI面试助手聊天接口"
+        },
+        {
+            "路径": "/api/ai/manus/chat",
+            "描述": "AI超级智能体聊天接口"
+        }
+    ],
+    "前端API方法": [
+        {
+            "方法名": "connectSSE",
+            "描述": "封装SSE连接",
+            "参数": ["url", "params", "onMessage", "onError"]
+        },
+        {
+            "方法名": "chatWithLoveApp",
+            "描述": "AI面试助手聊天",
+            "参数": ["message", "chatId"]
+        },
+        {
+            "方法名": "chatWithManus",
+            "描述": "AI超级智能体聊天",
+            "参数": ["message"]
+        }
+    ]
+}

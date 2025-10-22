@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: dayu-image-search-mcp-server
+  profiles:
+    active: sse
+server:
+  port: 8127

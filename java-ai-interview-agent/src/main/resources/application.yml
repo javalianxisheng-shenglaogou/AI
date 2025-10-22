@@ -1,0 +1,62 @@
+spring:
+  application:
+    name: yu-ai-agent
+  profiles:
+    active: local
+  datasource:
+    url: jdbc:postgresql://rm-cn-2g74bksal0007e1o.rwlb.rds.aliyuncs.com/demo_pgv
+    username: bear
+    password: Blake621
+  ai:
+    dashscope:
+      api-key: sk-004843b9da284b66b81f7d565c3dcf7f
+      chat:
+        options:
+          model: qwen-plus
+    mcp:
+      client:
+        sse:
+          connections:
+            server1:
+              url: http://localhost:8127
+        stdio:
+          servers-configuration: classpath:mcp-servers.json
+    vectorstore:
+      pgvector:
+        index-type: HNSW
+        dimensions: 1536
+        distance-type: COSINE_DISTANCE
+        max-document-batch-size: 10000 # Optional: Maximum number of documents per batch
+server:
+  port: 8123
+  servlet:
+    context-path: /api
+# springdoc-openapi config
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: alpha
+  api-docs:
+    path: /v3/api-docs
+  group-configs:
+    - group: 'default'
+      paths-to-match: '/**'
+      packages-to-scan: com.bear.bearagent.controller
+# knife4j config
+knife4j:
+  enable: true
+  setting:
+    language: zh_cn
+# searchAPI
+search-api:
+  api-key: riVMixq9si2oYea5hrY2mvPo
+# 修改日志级别，查看 Spring AI 更多调用细节
+logging:
+  level:
+    org.springframework.ai: DEBUG
+#    ollama:
+#      base-url: http://localhost:11434
+#      chat:
+#        model: gemma3:1b
+# 临时注释掉，便于大家开发调试和部署
